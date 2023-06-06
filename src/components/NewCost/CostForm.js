@@ -16,9 +16,18 @@ const CostForm = () => {
     const nameChangeHandler = (event) => {
         console.log(event.target.value);
         /*  setName(event.target.value) */
-        setUserInput({
-            ...userInput,
+
+        /*       setUserInput({
+            ...userInput, // GET previousState Component's condition
             name: event.target.value,
+        }) */
+
+        // The most safe way update Component's previousState
+        setUserInput((previousState) => {
+            return {
+                ...previousState,
+                name: event.target.value
+            }
         })
     }
 
