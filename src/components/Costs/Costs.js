@@ -8,7 +8,7 @@ const Costs = (props) => {
 
     const [inputYear, setInputYear] = useState('2021')
 
-    const costs = props.costs;
+    /* const costs = props.costs; */
 
     const selectYearHandler = (year) => {
         setInputYear(year)
@@ -17,18 +17,12 @@ const Costs = (props) => {
     return (
         <Card className='costs'>
             <CostsFilter onChangeYear={selectYearHandler} startYear={inputYear} />
-            <CostItem
-                date={costs[0].date}
-                description={costs[0].description}
-                amount={costs[0].amount} />
-            <CostItem
-                date={costs[1].date}
-                description={costs[1].description}
-                amount={costs[1].amount} />
-            <CostItem
-                date={costs[2].date}
-                description={costs[2].description}
-                amount={costs[2].amount} />
+            {props.costs.map(
+                (cost) => <CostItem
+                    date={cost.date}
+                    description={cost.description}
+                    amount={cost.amount} />
+            )}
         </Card>
     );
 }
