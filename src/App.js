@@ -1,7 +1,6 @@
 /* import React from "react"; */
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
-import CostsFilter from "./components/CostsFilter/CostsFilter";
 
 const App = () => {
 

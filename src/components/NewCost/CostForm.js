@@ -1,5 +1,5 @@
 import './CostForm.css'
-import Reactimport, { useState } from 'react';
+import { useState } from 'react';
 
 const CostForm = (props) => {
 
@@ -58,8 +58,8 @@ const CostForm = (props) => {
             date: new Date(inputDate),
         }
 
-       // console.log(costData);
-       props.onSaveCostData(costData)
+        // console.log(costData);
+        props.onSaveCostData(costData)
         setInputName('')
         setInputAmount('')
         setInputDate('')
