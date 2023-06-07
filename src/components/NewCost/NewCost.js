@@ -12,9 +12,11 @@ const NewCost = (props) => {
         props.onAddCost(costData)
     }
 
-    return (<div className='new-cost'>
-        <CostForm onSaveCostData={saveCostDataHandler} />
-    </div>)
+    return (
+        <div className='new-cost'>
+            <CostForm onSaveCostData={saveCostDataHandler} />
+        </div>
+    )
 
 }
 

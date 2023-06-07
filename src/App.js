@@ -1,6 +1,7 @@
 /* import React from "react"; */
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
+import CostsFilter from "./components/CostsFilter/CostsFilter";
 
 const App = () => {
 
@@ -32,7 +33,7 @@ const App = () => {
 
   return (
     <div>
-      <NewCost onAddCost={addCostHandler}/>
+      <NewCost onAddCost={addCostHandler}/>      
       <Costs costs={costs} />
     </div>
   );
