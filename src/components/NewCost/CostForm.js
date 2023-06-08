@@ -7,6 +7,8 @@ const CostForm = (props) => {
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
+    const [switchForm, setSwitchForm] = useState(false)
+
     /*     const [userInput, setUserInput] = useState({
             name: '',
             amount: '',
@@ -65,25 +67,44 @@ const CostForm = (props) => {
         setInputDate('')
     }
 
-    return <form onSubmit={submitHandler}>
-        <div className="new-cost__controls">
+    const showForm = () => {
+        console.log('Show form');
+        setSwitchForm(true)
+    }
+
+    const hideFrom = () => {
+        console.log('Hide form');
+        setSwitchForm(false)
+    }
+
+
+    if (!switchForm) {
+        return <button onClick={showForm}>Добавить расход</button>
+    } else {
+        return <form onSubmit={submitHandler}>
             <div className="new-cost__controls">
-                <label>Название</label>
-                <input type="text" onChange={nameChangeHandler} value={inputName} />
+                <div className="new-cost__controls">
+                    <label>Название</label>
+                    <input type="text" onChange={nameChangeHandler} value={inputName} />
+                </div>
+                <div className="new-cost__controls">
+                    <label>Сумма</label>
+                    <input type="number" min='0.01' step='0.01' onChange={ammountChangeHandler} value={inputAmount} />
+                </div>
+                <div className="new-cost__controls">
+                    <label>Дата</label>
+                    <input type="date" min='2019-01-01' max='2023-12-31' onChange={dateChangeHandler} value={inputDate} />
+                </div>
+                <div className="new-cost__actions">
+                    <button type='submit'>Добавить расход</button>
+                    <button onClick={hideFrom}>Отмена</button>
+                </div>
             </div>
-            <div className="new-cost__controls">
-                <label>Сумма</label>
-                <input type="number" min='0.01' step='0.01' onChange={ammountChangeHandler} value={inputAmount} />
-            </div>
-            <div className="new-cost__controls">
-                <label>Дата</label>
-                <input type="date" min='2019-01-01' max='2023-12-31' onChange={dateChangeHandler} value={inputDate} />
-            </div>
-            <div className="new-cost__actions">
-                <button type='submit'>Добавить расход</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    }
+
+
+
 
 }
 

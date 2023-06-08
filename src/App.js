@@ -27,6 +27,7 @@ const INITIAL_COSTS = [
 const App = () => {
 
   const [costs, setCosts] = useState(INITIAL_COSTS)
+  const [tempCosts, setTempCosts] = useState(costs)
 
   const addCostHandler = (cost) => {
     /*  console.log(cost);
@@ -36,10 +37,20 @@ const App = () => {
     })
   }
 
+  const changeListCosts = (year) => {
+    console.log(year);
+    console.log(costs);
+    setTempCosts(costs)
+    const temp = costs.filter(el => {
+      return el.date.getFullYear() == year
+    })
+    setCosts(temp)
+  }
+
   return (
     <div>
       <NewCost onAddCost={addCostHandler} />
-      <Costs costs={costs} />
+      <Costs costs={costs} onChangeYear={changeListCosts} />
     </div>
   );
 

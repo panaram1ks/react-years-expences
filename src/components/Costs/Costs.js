@@ -16,6 +16,7 @@ const Costs = (props) => {
 
     const selectYearHandler = (year) => {
         setInputYear(year)
+        props.onChangeYear(year)
     }
 
 
