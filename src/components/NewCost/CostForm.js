@@ -7,8 +7,6 @@ const CostForm = (props) => {
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
-    const [switchForm, setSwitchForm] = useState(false)
-
     /*     const [userInput, setUserInput] = useState({
             name: '',
             amount: '',
@@ -67,21 +65,8 @@ const CostForm = (props) => {
         setInputDate('')
     }
 
-    const showForm = () => {
-        console.log('Show form');
-        setSwitchForm(true)
-    }
-
-    const hideFrom = () => {
-        console.log('Hide form');
-        setSwitchForm(false)
-    }
-
-
-    if (!switchForm) {
-        return <button onClick={showForm}>Добавить расход</button>
-    } else {
-        return <form onSubmit={submitHandler}>
+    return (
+        <form onSubmit={submitHandler}>
             <div className="new-cost__controls">
                 <div className="new-cost__controls">
                     <label>Название</label>
@@ -97,11 +82,11 @@ const CostForm = (props) => {
                 </div>
                 <div className="new-cost__actions">
                     <button type='submit'>Добавить расход</button>
-                    <button onClick={hideFrom}>Отмена</button>
+                    <button type='button' onClick={props.hideForm}>Отмена</button>
                 </div>
             </div>
         </form>
-    }
+    )
 
 
 
