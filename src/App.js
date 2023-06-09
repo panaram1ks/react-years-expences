@@ -35,7 +35,7 @@ const App = () => {
     })
   }
 
-  const tempCosts = costs;
+  let tempCosts = costs;
 
   const changeListCosts = (year) => {
     console.log(year);
