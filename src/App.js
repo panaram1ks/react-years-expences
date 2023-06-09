@@ -1,4 +1,4 @@
-/* import React from "react"; */
+
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 import { useState } from "react"
@@ -27,30 +27,30 @@ const INITIAL_COSTS = [
 const App = () => {
 
   const [costs, setCosts] = useState(INITIAL_COSTS)
-  const [tempCosts, setTempCosts] = useState(costs)
+ /*  const [tempCosts, setTempCosts] = useState(costs) */
 
   const addCostHandler = (cost) => {
-    /*  console.log(cost);
-     console.log("App component"); */
     setCosts(prevCosts => {
       return [cost, ...prevCosts]
     })
   }
 
+  const tempCosts = costs;
+
   const changeListCosts = (year) => {
     console.log(year);
-    console.log(costs);
-    setTempCosts(costs)
-    const temp = costs.filter(el => {
+    console.log('old value' + costs);
+    tempCosts = costs.filter(el => {
       return el.date.getFullYear() == year
     })
-    setCosts(temp)
+    console.log('new value' + tempCosts);
+    /* setTempCosts(temp) */
   }
 
   return (
     <div>
       <NewCost onAddCost={addCostHandler} />
-      <Costs costs={costs} onChangeYear={changeListCosts} />
+      <Costs costs={tempCosts} onChangeYear={changeListCosts} />
     </div>
   );
 
